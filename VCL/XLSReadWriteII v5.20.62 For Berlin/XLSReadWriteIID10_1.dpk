@@ -1,0 +1,159 @@
+package XLSReadWriteIID10_1;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclimg,
+  dbrtl;
+
+contains
+  BIFF_Autofilter5 in 'SrcXLS\BIFF_Autofilter5.pas',
+  BIFF_CellAreas5 in 'SrcXLS\BIFF_CellAreas5.pas',
+  BIFF_CompoundStream5 in 'SrcXLS\BIFF_CompoundStream5.pas',
+  BIFF_CondFmt5 in 'SrcXLS\BIFF_CondFmt5.pas',
+  BIFF_ControlObj5 in 'SrcXLS\BIFF_ControlObj5.pas',
+  BIFF_DecodeFormula5 in 'SrcXLS\BIFF_DecodeFormula5.pas',
+  BIFF_DrawingObj5 in 'SrcXLS\BIFF_DrawingObj5.pas',
+  BIFF_DrawingObjAnchor5 in 'SrcXLS\BIFF_DrawingObjAnchor5.pas',
+  BIFF_DrawingObjChart5 in 'SrcXLS\BIFF_DrawingObjChart5.pas',
+  BIFF_EncodeFormulaII5 in 'SrcXLS\BIFF_EncodeFormulaII5.pas',
+  BIFF_Escher5 in 'SrcXLS\BIFF_Escher5.pas',
+  BIFF_EscherCtrlObj5 in 'SrcXLS\BIFF_EscherCtrlObj5.pas',
+  BIFF_EscherFileObjs5 in 'SrcXLS\BIFF_EscherFileObjs5.pas',
+  BIFF_EscherTypes5 in 'SrcXLS\BIFF_EscherTypes5.pas',
+  BIFF_ExcelFuncII5 in 'SrcXLS\BIFF_ExcelFuncII5.pas',
+  BIFF_FormulaHandler5 in 'SrcXLS\BIFF_FormulaHandler5.pas',
+  BIFF_ICompoundStream5 in 'SrcXLS\BIFF_ICompoundStream5.pas',
+  BIFF_MD4Hash_5 in 'SrcXLS\BIFF_MD4Hash_5.pas',
+  BIFF_MD5_5 in 'SrcXLS\BIFF_MD5_5.pas',
+  BIFF_MergedCells5 in 'SrcXLS\BIFF_MergedCells5.pas',
+  BIFF_MoveCopy5 in 'SrcXLS\BIFF_MoveCopy5.pas',
+  BIFF_Names5 in 'SrcXLS\BIFF_Names5.pas',
+  BIFF_RC4_5 in 'SrcXLS\BIFF_RC4_5.pas',
+  BIFF_ReadII5 in 'SrcXLS\BIFF_ReadII5.pas',
+  BIFF_RecordStorage5 in 'SrcXLS\BIFF_RecordStorage5.pas',
+  BIFF_RecordStorageChart5 in 'SrcXLS\BIFF_RecordStorageChart5.pas',
+  BIFF_RecsII5 in 'SrcXLS\BIFF_RecsII5.pas',
+  BIFF_SheetData5 in 'SrcXLS\BIFF_SheetData5.pas',
+  BIFF_Stream5 in 'SrcXLS\BIFF_Stream5.pas',
+  BIFF_Utils5 in 'SrcXLS\BIFF_Utils5.pas',
+  BIFF_Validate5 in 'SrcXLS\BIFF_Validate5.pas',
+  BIFF_VBA5 in 'SrcXLS\BIFF_VBA5.pas',
+  BIFF_WideStrList5 in 'SrcXLS\BIFF_WideStrList5.pas',
+  BIFF_WriteII5 in 'SrcXLS\BIFF_WriteII5.pas',
+  BIFF5 in 'SrcXLS\BIFF5.pas',
+  BIFF12_Recs5 in 'SrcXLS\BIFF12_Recs5.pas',
+  Xc12Common5 in 'SrcXLS\Xc12Common5.pas',
+  Xc12DataAutofilter5 in 'SrcXLS\Xc12DataAutofilter5.pas',
+  Xc12DataComments5 in 'SrcXLS\Xc12DataComments5.pas',
+  Xc12DataSST5 in 'SrcXLS\Xc12DataSST5.pas',
+  Xc12DataStylesheet5 in 'SrcXLS\Xc12DataStylesheet5.pas',
+  Xc12DataTable5 in 'SrcXLS\Xc12DataTable5.pas',
+  Xc12DataWorkbook5 in 'SrcXLS\Xc12DataWorkbook5.pas',
+  Xc12DataWorksheet5 in 'SrcXLS\Xc12DataWorksheet5.pas',
+  Xc12DataXLinks5 in 'SrcXLS\Xc12DataXLinks5.pas',
+  Xc12DefaultData5 in 'SrcXLS\Xc12DefaultData5.pas',
+  Xc12FileData5 in 'SrcXLS\Xc12FileData5.pas',
+  Xc12Graphics in 'SrcXLS\Xc12Graphics.pas',
+  Xc12Manager5 in 'SrcXLS\Xc12Manager5.pas',
+  Xc12Utils5 in 'SrcXLS\Xc12Utils5.pas',
+  XLSAutofilter5 in 'SrcXLS\XLSAutofilter5.pas',
+  XLSCalcChain5 in 'SrcXLS\XLSCalcChain5.pas',
+  XLSCellAreas5 in 'SrcXLS\XLSCellAreas5.pas',
+  XLSCellMMU5 in 'SrcXLS\XLSCellMMU5.pas',
+  XLSClassFactory5 in 'SrcXLS\XLSClassFactory5.pas',
+  XLSClipboard5 in 'SrcXLS\XLSClipboard5.pas',
+  XLSCmdFormat5 in 'SrcXLS\XLSCmdFormat5.pas',
+  XLSColumn5 in 'SrcXLS\XLSColumn5.pas',
+  XLSComment5 in 'SrcXLS\XLSComment5.pas',
+  XLSCondFormat5 in 'SrcXLS\XLSCondFormat5.pas',
+  XLSDbRead5 in 'SrcXLS\XLSDbRead5.pas',
+  XLSDecodeFmla5 in 'SrcXLS\XLSDecodeFmla5.pas',
+  XLSDecodeFormula5 in 'SrcXLS\XLSDecodeFormula5.pas',
+  XLSDefaultDataXLSX5 in 'SrcXLS\XLSDefaultDataXLSX5.pas',
+  XLSDrawing5 in 'SrcXLS\XLSDrawing5.pas',
+  XLSEncodeFmla5 in 'SrcXLS\XLSEncodeFmla5.pas',
+  XLSEvaluate5 in 'SrcXLS\XLSEvaluate5.pas',
+  XLSEvaluateFmla5 in 'SrcXLS\XLSEvaluateFmla5.pas',
+  XLSExport5 in 'SrcXLS\XLSExport5.pas',
+  XLSExportCSV5 in 'SrcXLS\XLSExportCSV5.pas',
+  XLSExportHTML5 in 'SrcXLS\XLSExportHTML5.pas',
+  XLSFmlaDebugData5 in 'SrcXLS\XLSFmlaDebugData5.pas',
+  XLSFmlaDebugger5 in 'SrcXLS\XLSFmlaDebugger5.pas',
+  XLSFormattedObj5 in 'SrcXLS\XLSFormattedObj5.pas',
+  XLSFormula5 in 'SrcXLS\XLSFormula5.pas',
+  XLSFormulaTypes5 in 'SrcXLS\XLSFormulaTypes5.pas',
+  XLSHTMLParse5 in 'SrcXLS\XLSHTMLParse5.pas',
+  XLSHTMLTypes5 in 'SrcXLS\XLSHTMLTypes5.pas',
+  XLSHyperlinks5 in 'SrcXLS\XLSHyperlinks5.pas',
+  XLSImportCSV5 in 'SrcXLS\XLSImportCSV5.pas',
+  XLSImportHTMLTable5 in 'SrcXLS\XLSImportHTMLTable5.pas',
+  XLSImportSYLK5 in 'SrcXLS\XLSImportSYLK5.pas',
+  XLSMask5 in 'SrcXLS\XLSMask5.pas',
+  XLSMath5 in 'SrcXLS\XLSMath5.pas',
+  XLSMathData5 in 'SrcXLS\XLSMathData5.pas',
+  XLSMatrix5 in 'SrcXLS\XLSMatrix5.pas',
+  XLSMergedCells5 in 'SrcXLS\XLSMergedCells5.pas',
+  XLSMMU5 in 'SrcXLS\XLSMMU5.pas',
+  XLSMoveCopy5 in 'SrcXLS\XLSMoveCopy5.pas',
+  XLSNames5 in 'SrcXLS\XLSNames5.pas',
+  XLSRange5 in 'SrcXLS\XLSRange5.pas',
+  XLSReadWriteII5 in 'SrcXLS\XLSReadWriteII5.pas',
+  XLSReadWriteOPC5 in 'SrcXLS\XLSReadWriteOPC5.pas',
+  XLSReadWriteReg5 in 'SrcXLS\XLSReadWriteReg5.pas',
+  XLSReadWriteZIP5 in 'SrcXLS\XLSReadWriteZIP5.pas',
+  XLSReadXLSX5 in 'SrcXLS\XLSReadXLSX5.pas',
+  XLSRow5 in 'SrcXLS\XLSRow5.pas',
+  XLSRTFReadWrite5 in 'SrcXLS\XLSRTFReadWrite5.pas',
+  XLSSheetData5 in 'SrcXLS\XLSSheetData5.pas',
+  XLSTextUtils5 in 'SrcXLS\XLSTextUtils5.pas',
+  XLSTokenizer5 in 'SrcXLS\XLSTokenizer5.pas',
+  XLSTools5 in 'SrcXLS\XLSTools5.pas',
+  XLSTSort in 'SrcXLS\XLSTSort.pas',
+  XLSUtils5 in 'SrcXLS\XLSUtils5.pas',
+  XLSValidate5 in 'SrcXLS\XLSValidate5.pas',
+  XLSWriteXLSX5 in 'SrcXLS\XLSWriteXLSX5.pas',
+  XLSZip5 in 'SrcXLS\XLSZip5.pas',
+  XLSZlibPas5 in 'SrcXLS\XLSZlibPas5.pas',
+  xpgParseChart in 'SrcXLS\xpgParseChart.pas',
+  xpgParseContentType in 'SrcXLS\xpgParseContentType.pas',
+  xpgParseDocPropsApp in 'SrcXLS\xpgParseDocPropsApp.pas',
+  xpgParseDrawing in 'SrcXLS\xpgParseDrawing.pas',
+  xpgParseDrawingCommon in 'SrcXLS\xpgParseDrawingCommon.pas',
+  xpgParseOPC in 'SrcXLS\xpgParseOPC.pas',
+  xpgParserXLSX in 'SrcXLS\xpgParserXLSX.pas',
+  xpgParseXLinks in 'SrcXLS\xpgParseXLinks.pas',
+  xpgPLists in 'SrcXLS\xpgPLists.pas',
+  xpgPSimpleDOM in 'SrcXLS\xpgPSimpleDOM.pas',
+  xpgPUtils in 'SrcXLS\xpgPUtils.pas',
+  xpgPXML in 'SrcXLS\xpgPXML.pas',
+  xpgPXMLUtils in 'SrcXLS\xpgPXMLUtils.pas';
+
+end.
